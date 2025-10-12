@@ -11,9 +11,10 @@ Sebaliknya, Monica Everets Bot menggunakan pendekatan **multi command** yang ter
 Selain itu, script ini juga menerapkan **notasi eksponensial** dalam beberapa bagian logika — notasi ini merupakan cara penulisan angka dalam bentuk pangkat 10 (misalnya `1e3` berarti `1000`).  
 Penggunaan notasi eksponensial membuat kode lebih ringkas, mudah dibaca, dan efisien saat menangani nilai besar atau perhitungan tertentu dalam bot.
 
-Script ini juga memanfaatkan ekspresi boolean secara langsung dalam bentuk yang lebih singkat. Contohnya:
-- `true` dituliskan sebagai `!0` → karena `0` bernilai `false`, dan negasi `!0` menghasilkan `true`.  
-- `false` dituliskan sebagai `!1` → karena `1` bernilai `true`, dan negasi `!1` menghasilkan `false`.  
+| Nilai Boolean | Ekspresi | Alasan                                                                 |
+|---------------|----------|------------------------------------------------------------------------|
+| `true`        | `!0`     | Karena `0` bernilai `false`, negasinya `!0` menghasilkan `true`.       |
+| `false`       | `!1`     | Karena `1` bernilai `true`, negasinya `!1` menghasilkan `false`.       |
 
 Gaya penulisan ini memang tidak langsung mudah dipahami bagi yang belum terbiasa, namun jika diperhatikan dan dibaca dengan teliti, logikanya sangat jelas dan dapat dipahami.  
 Pendekatan ini membantu menjaga kode tetap ringkas tanpa mengorbankan fungsionalitas.
@@ -51,4 +52,92 @@ Bot ini cocok digunakan untuk:
  <a href="https://www.tiktok.com/@maoudabi0?_t=ZS-8ujMCbLiDpg&_r=1" target="_blank">
   <img src="https://img.shields.io/badge/Tiktok-0?style=for-the-badge&logo=Tiktok&logoColor=FFFFFF&logoSize=3&color=010101" alt="maoudabi0" />
   </a>
+</p>
+
+---
+
+# Tutorial Install Monica-Ai
+
+Salin atau ketik promt seperti yang ada di bawah ini di termux
+
+1. Update Package
+
+```bash
+     pkg upgrade -y && pkg update -y
+```
+
+2. Install NodeJs & Git
+
+```bash
+     pkg install nodejs -y && pkg install git -y
+```
+
+3. Install ffmpeg & clone repo
+
+```bash
+     pkg install ffmpeg -y && git https://github.com/MaouDabi0/Monica-Ai
+```
+
+---
+
+1. Change Directory
+
+   Setelah menyalin repo dari github<br>
+   `git clone https://github.com...`,<br>
+   langkah selanjutnya anda perlu melakukan input promt pada termux dengan mengetik/menyalin ini
+
+   ```bash
+   cd Monica-Ai
+   ```
+
+   jika tampilan termux sudah seperti ini<br>
+   `~/Monica-Ai $`,<br> maka langkah selanjutnya adalah
+
+2. Node Package Meneger
+
+   yaitu penginstalan node package, dengan cara menginput promt pada termux dengan mengetik/menyalin ini
+
+   ```bash
+   npm install
+   ```
+
+   tunggu hingga process selesai, jika process selesai atau berhasil maka langkah berikutnya adalah
+
+  <details>
+    <summary>Tip</summary>
+      Jika `npm install` tidak bisa maka gunakan
+  </details><br>
+
+3. Yarn Package Meneger
+
+   gunakan yarn untuk menginstall **Package** di dalam `~/node_module` pada Script Bot WhatsApp dengan cara mengetik/menyalin ini
+
+   ```bash
+   yarn install
+   ```
+
+4. Bot Running
+
+   langkah selanjutnya adalah memasukan promt atau perintah pada termux, dengan mengetik/menyalin ini
+
+   ```bash
+   npm start
+   ```
+
+5. Connection Save
+
+   jalankan dan masukan nomor/akun whatsapp yang akan dijadikan Bot WhatsApp, jika code pairing sudah muncul, masukan code pairing tersebut ke Perangkat tertaut.<br>
+   Dan selamat Bot berhasil di jalankan. 
+
+---
+
+<details>
+  <summary>Tip</summary>
+    Jika masih ada kendala pemasangan klik link yang ada di sini
+</details><br>
+
+<p align="center">
+ <a href="https://acesse.one/MaouDabi0" target="_blank">
+ <img src="https://img.shields.io/badge/WhatsApp-0?style=social&logo=whatsapp&logoColor=255&labelColor=255&color=255" alt="WhatsApp" />
+ </a>
 </p>
