@@ -1,7 +1,7 @@
 # Monica Everets Bot WA - Interactive AI
 
 
-[![Star History Chart](https://api.star-history.com/svg?repos=MaouDabi0/README&type=Date)](https://star-history.com/#MaouDabi0/README&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=MaouDabi0/Monica-Ai/README&type=Date)](https://star-history.com/#MaouDabi0/Monica-Ai/README&Date)
 
 ---
 
