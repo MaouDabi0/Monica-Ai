@@ -67,21 +67,21 @@ Salin atau ketik promt seperti yang ada di bawah ini di termux
 
 1. Update Package
 
-```bash
+  ```bash
      pkg upgrade -y && pkg update -y
-```
+  ```
 
 2. Install NodeJs & Git
 
-```bash
+  ```bash
      pkg install nodejs -y && pkg install git -y
-```
+  ```
 
 3. Install ffmpeg & clone repo
 
-```bash
+  ```bash
      pkg install ffmpeg -y && git https://github.com/MaouDabi0/Monica-Ai
-```
+  ```
 
 ---
 
