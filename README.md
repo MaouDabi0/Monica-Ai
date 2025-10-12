@@ -1,5 +1,10 @@
 # Monica Everets Bot WA - Interactive AI
 
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MaouDabi0/README&type=Date)](https://star-history.com/#MaouDabi0/README&Date)
+
+---
+
 Monica Everets Bot adalah **bot WhatsApp interaktif berbasis AI** yang dirancang untuk memberikan pengalaman berinteraksi yang lebih cerdas dan responsif kepada pengguna.  
 Bot ini mampu menjalankan berbagai **perintah (command)** dengan menggunakan perintah utama **`ai`**, sehingga setiap instruksi dari pengguna dapat diproses secara dinamis tanpa perlu mengetikkan banyak perintah manual.  
 
@@ -141,5 +146,3 @@ Salin atau ketik promt seperti yang ada di bawah ini di termux
  <img src="https://img.shields.io/badge/WhatsApp-0?style=social&logo=whatsapp&logoColor=255&labelColor=255&color=255" alt="WhatsApp" />
  </a>
 </p>
-
-[![Star History Chart](https://api.star-history.com/svg?repos=MaouDabi0/README&type=Date)](https://star-history.com/#MaouDabi0/README&Date)
