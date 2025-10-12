@@ -22,20 +22,20 @@ Pendekatan ini membantu menjaga kode tetap ringkas tanpa mengorbankan fungsional
 Struktur menu dan sistemnya masih berbasis **base script**, sehingga sangat fleksibel untuk dikembangkan lebih lanjut. Kamu dapat menambahkan fitur baru, memperluas logika multi command, atau mengintegrasikan API eksternal dengan mudah tanpa harus membangun sistem plugin yang kompleks.
 
 Bot ini cocok digunakan untuk:
-- Otomatisasi grup WhatsApp  
-- Asisten pribadi berbasis AI  
-- Sistem informasi interaktif  
-- Eksperimen pengembangan chatbot berbasis JavaScript  
-- Pengembangan bot dengan gaya coding minimalis dan efisien
+- [x] Otomatisasi grup WhatsApp
+- [x] Asisten pribadi berbasis AI
+- [x] Sistem informasi interaktif 
+- [x] Eksperimen pengembangan chatbot berbasis JavaScript
+- [x] Pengembangan bot dengan gaya coding minimalis dan efisien
 
 ---
 
 ## Fitur Utama
 
-- Menjalankan perintah melalui **command `ai`**
-- Menu interaktif berbasis WhatsApp
-- Support multiple users sekaligus
-- Dapat dikustomisasi dan diperluas sesuai script dasar
+> Menjalankan perintah melalui **command `ai`**
+>> Menu interaktif berbasis WhatsApp
+>>> Support multiple users sekaligus
+>>>> Dapat dikustomisasi dan diperluas sesuai script dasar
 
 ---
 
@@ -141,16 +141,3 @@ Salin atau ketik promt seperti yang ada di bawah ini di termux
  <img src="https://img.shields.io/badge/WhatsApp-0?style=social&logo=whatsapp&logoColor=255&labelColor=255&color=255" alt="WhatsApp" />
  </a>
 </p>
-
-- [x] 需求分析
-- [x] 系统设计
-- [x] 详细设计
-- [ ] 编码
-- [ ] 测试
-- [ ] 交付
-
-> 数据结构
->> 树
->>> 二叉树
->>>> 平衡二叉树
->>>>> 满二叉树
