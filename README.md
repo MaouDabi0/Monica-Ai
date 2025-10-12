@@ -112,7 +112,6 @@ Salin atau ketik promt seperti yang ada di bawah ini di termux
     <summary>Tip</summary>
       Jika `npm install` tidak bisa maka gunakan
   </details><br>
-
 3. Yarn Package Meneger
 
    gunakan yarn untuk menginstall **Package** di dalam `~/node_module` pada Script Bot WhatsApp dengan cara mengetik/menyalin ini
