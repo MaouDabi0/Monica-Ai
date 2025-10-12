@@ -141,3 +141,5 @@ Salin atau ketik promt seperti yang ada di bawah ini di termux
  <img src="https://img.shields.io/badge/WhatsApp-0?style=social&logo=whatsapp&logoColor=255&labelColor=255&color=255" alt="WhatsApp" />
  </a>
 </p>
+
+[![Star History Chart](https://api.star-history.com/svg?repos=MaouDabi0/README&type=Date)](https://star-history.com/#MaouDabi0/README&Date)
