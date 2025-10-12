@@ -148,3 +148,9 @@ Salin atau ketik promt seperti yang ada di bawah ini di termux
 - [ ] 编码
 - [ ] 测试
 - [ ] 交付
+
+> 数据结构
+>> 树
+>>> 二叉树
+>>>> 平衡二叉树
+>>>>> 满二叉树
