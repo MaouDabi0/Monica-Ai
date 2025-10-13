@@ -11,8 +11,7 @@
         ".",
         ",",
         "#",
-        "/",
-        "c"
+        "/"
       ],
       "frame": {
         "head": "┏───•",
@@ -33,7 +32,7 @@
   },
   "apikey": {
     "termai": {
-      "key": "DabiKEY",
+      "key": "Bell409",
       "web": "https://api.termai.cc"
     }
   } 
