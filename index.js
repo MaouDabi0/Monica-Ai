@@ -53,7 +53,6 @@ const startBot = async () => {
 
         m = replaceLid(m)
         if (m.key.fromMe) cleanMsg(m)
-        log(m)
 
         const { id, group, sender, pushName, channel } = global.chat(m, botName),
               time = global.time.timeIndo('Asia/Jakarta', 'HH:mm'),
