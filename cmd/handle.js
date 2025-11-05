@@ -3,31 +3,30 @@ import fs from "fs"
 import p from "path"
 import EventEmitter from "events"
 import { authUser } from '../system/db/data.js'
+import { own } from '../system/helper.js'
 
 const dir = p.join(dirname, "../cmd/command"),
       cache = {}
 
 class CommandEmitter extends EventEmitter {
   on(def, listener) {
-    if (typeof def === "object" && def.cmd && def.run) {
-      def.name && (this.pluginName = def.name)
-      const cmds = Array.isArray(def.cmd) ? def.cmd : [def.cmd]
+    if (typeof def !== "object" || !def.cmd || !def.run) return super.on(def, listener)
 
-      for (const c2 of cmds) {
-        super.on(c2.toLowerCase(), async (...a) => {
-          try {
-            await def.run(...a)
-          } catch (e) {
-            log(c.redBright.bold(`Error ${def.name || c2}: `), e)
-          }
-        })
-      }
+    def.name && (this.pluginName = def.name)
+    const cmds = Array.isArray(def.cmd) ? def.cmd : [def.cmd]
 
-      this.commands = this.commands || []
-      this.commands.push(def)
-    } else {
-      super.on(def, listener)
+    for (const c2 of cmds) {
+      super.on(c2.toLowerCase(), async (xp, m, extra) => {
+        try {
+          if (def.owner && !own(m)) return
+          await def.run(xp, m, extra)
+        } catch (e) {
+          log(c.redBright.bold(`Error ${def.name || c2}: `), e)
+        }
+      })
     }
+
+    ;(this.commands ??= []).push(def)
   }
 }
 
@@ -117,7 +116,7 @@ const handleCmd = async (m, xp) => {
           )
 
     authUser(m, chat)
-    if (eventData?.owner && !ownerNum.includes(sender)) return
+    if ((!global.public || eventData?.owner) && !ownerNum.includes(sender)) return
 
     ev.emit(lowerCmd, xp, m, { args, chat, text, command: lowerCmd, prefix: pre })
   } catch (e) {
