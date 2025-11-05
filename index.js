@@ -23,6 +23,7 @@ const startBot = async () => {
     const { state, saveCreds } = await useMultiFileAuthState('./connect/session')
     xp = makeWASocket({
       auth: state,
+      version: [2e0, 3e3, 1.025150051e9],
       printQRInTerminal: !1,
       syncFullHistory: !1,
       logger: logLevel,
@@ -49,10 +50,11 @@ const startBot = async () => {
 
     xp.ev.on('messages.upsert', async ({ messages }) => {
       for (let m of messages) {
+        m = cleanMsg(m)
         if (!m.message) continue
 
         m = replaceLid(m)
-        if (m.key.fromMe) cleanMsg(m)
+        log(m)
 
         const { id, group, sender, pushName, channel } = global.chat(m, botName),
               time = global.time.timeIndo('Asia/Jakarta', 'HH:mm'),
