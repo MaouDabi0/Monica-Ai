@@ -54,7 +54,6 @@ export default function info(ev) {
           text: txt,
           contextInfo: {
             externalAdReply: {
-              title: botFullName,
               body: `Ini adalah menu ${botName}`,
               thumbnailUrl: thumbnail,
               mediaType: 1,
@@ -121,7 +120,7 @@ export default function info(ev) {
   ${body} ${btn} *Storage:* ${usedDisk} / ${totalDisk} ( ${freeDisk} )
   ${foot}${line}`.trim()
 
-      await xp.sendMessage(id, {
+      await xp.sendMessage(chat.id, {
         text: stats,
         contextInfo: {
           externalAdReply: {
@@ -138,6 +137,36 @@ export default function info(ev) {
           }
         }
       }, { quoted: m })
+    }
+  })
+
+  ev.on({
+    name: 'owner',
+    cmd: ['owner',  'contact'],
+    tags: 'Info Menu',
+    desc: 'menampilkan kontak owner',
+    owner: !1,
+
+    run: async (xp, m, {
+      chat,
+    }) => {
+      try {
+        const owner = global.ownerName || 'error',
+              bot = global.botName || 'error',
+              ownerNumber = Array.isArray(global.ownerNumber) ? global.ownerNumber : [global.ownerNumber]
+
+        if (!ownerNumber || !ownerNumber.length) {
+          return xp.sendMessage(chat.id, { text: 'tidak ada kontak owner' }, { quoted: m })
+        }
+
+        const contact = ownerNumber.map((num, i) => ({ vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:${owner} ${i + 1}\nTEL;type=CELL;waid=${num}:${num}\nEND:VCARD` })),
+              displayName = ownerNumber.length > 1 ? `${owner} dan ${ownerNumber.length - 1} lainnya` : owner
+
+        await xp.sendMessage(chat.id, { contacts: { displayName, contacts: contact } }, { quoted: m })
+        await xp.sendMessage(chat.id, { text: 'ini adalah kontak owner ku' }, { quoted: m })
+      } catch (e) {
+        log('error pada owner', e)
+      }
     }
   })
 }

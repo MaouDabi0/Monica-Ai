@@ -1,4 +1,5 @@
 import fetch from 'node-fetch'
+import { downloadMediaMessage } from 'baileys'
 import { db, saveDb } from '../../system/db/data.js'
 
 export default function ai(ev) {
@@ -121,6 +122,57 @@ export default function ai(ev) {
         xp.sendMessage(chat.id, { text: txt.trim() }, { quoted: m })
       } catch (e) {
         log('error pada cekkey', e)
+      }
+    }
+  })
+
+  ev.on({
+    name: 'img2img',
+    cmd: ['img2img', 'i2i'],
+    tags: 'Ai Menu',
+    desc: 'edit gambar dengan generatif ai',
+    owner: !1,
+
+    run: async (xp, m, {
+      args,
+      chat
+    }) => {
+      try {
+        const prompt = args.join(" "),
+              quoted = m.message?.extendedTextMessage?.contextInfo?.quotedMessage,
+              quotedKey = m.message?.extendedTextMessage?.contextInfo,
+              image = quoted?.imageMessage || m.message?.imageMessage
+
+        if (!image && !prompt) {
+          return xp.sendMessage(chat.id, { text: !image ? 'reply/kirim gambar dengan caption .i2i prompt' : 'sertakan prompt\ncontoh prompt: .i2i ubah kulitnya jadi hitam' }, { quoted: m })
+        }
+
+        let media
+        try {
+          if (quoted?.imageMessage) {
+            media = await downloadMediaMessage({ key: quotedKey, message: quoted }, 'buffer')
+          } else if (m.message?.imageMessage) {
+            media = await downloadMediaMessage(m, 'buffer')
+          }
+          if (!media) throw new Error('media tidak terunduh')
+        } catch (e) {
+          console.log('gagal mengunduh media', e)
+        }
+
+        const res = await fetch(`${termaiWeb}/api/img2img/edit?key=${termaiKey}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt, image: media })
+        })
+
+        if (!res.ok) throw new Error(`API Error: ${res.statusText} (${res.status})`)
+
+        const array = await res.arrayBuffer(),
+              imgBuffer = Buffer.from(array)
+
+        await xp.sendMessage(chat.id, { image: imgBuffer, caption: `hasil dengan prompt: ${prompt}` }, { quoted: m })
+      } catch (e) {
+        console.log('error pada img2img', e)
       }
     }
   })
