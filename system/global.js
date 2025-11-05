@@ -3,7 +3,7 @@ import path from 'path'
 import readline from 'readline'
 import { fileURLToPath } from 'url'
 import sys from './sys.js'
-import number from './helper.js'
+import { number } from './helper.js'
 import getMessageContent from './msg.js'
 
 const filename = fileURLToPath(import.meta.url),
@@ -36,6 +36,7 @@ Object.assign(global, {
   idCh: cfg.botSetting.menuSetting.idCh,
   thumbnail: cfg.botSetting.menuSetting.thumbnail,
   ownerName: cfg.ownerSetting.ownerName,
+  public: cfg.ownerSetting.public,
   ownerNumber: cfg.ownerSetting.ownerNumber,
   footer: cfg.botSetting.menuSetting.footer,
   termaiWeb: cfg.apikey.termai.web,

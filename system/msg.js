@@ -29,6 +29,8 @@ function getMessageContent(m) {
                  : 'Diedit') 
              : '')
          || (pm?.type === 5 ? 'Sinkronisasi' : '')
+         || (pm?.type === 6 ? 'Sinkronisasi Kunci Aplikasi' : '')
+         || (pm?.type === 9 ? 'Sinkronisasi Keamanan' : '')
          || (pm?.type === 0 ? 'Pesan Dihapus' : '')
          || c.ephemeralMessage?.message?.conversation
          || c.ephemeralMessage?.message?.extendedTextMessage?.text

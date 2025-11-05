@@ -52,17 +52,22 @@ function replaceLid(o, v = new WeakSet()) {
   return o
 }
 
-const cleanMsg = o => {
-  if (!o || typeof o != 'object') return o
-  for (const k in o) {
-    const v = o[k]
-    if (
-      v == null ||
-      (Array.isArray(v) && !v.length) ||
-      (typeof v == 'object' && (cleanMsg(v), !Object.keys(v).length && !['key', 'message'].includes(k)))
-    ) delete o[k]
+const cleanMsg = obj => {
+  if (obj == null) return
+  if (Array.isArray(obj)) {
+    const arr = obj.map(cleanMsg).filter(v => v !== undefined)
+    return arr.length ? arr : undefined
   }
-  return o
+  if (typeof obj === 'object') {
+    if (Buffer.isBuffer(obj) || ArrayBuffer.isView(obj)) return obj
+    const cleaned = Object.entries(obj).reduce((acc, [k, v]) => {
+      const c = cleanMsg(v)
+      if (c !== undefined) acc[k] = c
+      return acc
+    }, {})
+    return Object.keys(cleaned).length ? cleaned : undefined
+  }
+  return obj
 }
 
 export {
